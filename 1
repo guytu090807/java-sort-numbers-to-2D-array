@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+import javax.print.attribute.standard.NumberUpSupported;
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner= new Scanner(System.in);
+		
+		final int longitude=3;//אורך וגובה של המערך הדו מימדי
+		final int latitude=3;
+		int [][] numbers= new int [longitude][latitude];
+		int []numbers2= new int[longitude*latitude];//מערך רגיל בגודל התאים הכולל במערך הדו מימד
+		int i;
+		int j;
+		
+		for( i=0;i<longitude*latitude;i++){
+						
+					System.out.println("enter number: ");
+			numbers2[i]=scanner.nextInt();//הכנסת מספרים אקראית
+		}
+		
+		int temp;//באבל סורט רגיל שמציב את המספרים שבמערך הרגיל לפי הסדר
+		boolean end=false;
+		
+		while (end==false){
+			end=true;
+			for ( i=0;i<longitude*latitude-1;i++){
+				
+				
+				if(numbers2[i]>numbers2[i+1]){
+					temp=numbers2[i];
+					numbers2[i]=numbers2[i+1];
+					numbers2[i+1]=temp;
+					end=false;
+					
+						}
+								
+			}
+			
+					}
+		
+		for( i=0;i<longitude;i++){
+			for(j=0;j<latitude;j++){
+				numbers[i][j]=numbers2[i*longitude+j];//מציב את המספרים המסודרים במערך הדומימדי
+			}
+			
+		}
+		
+
+		for( i=0;i<longitude;i++){
+			for(j=0;j<latitude;j++){
+				System.out.print(numbers[i][j]+" / ");//הדפסה של המערך הדומימדי
+			}
+			System.out.println();
+	}
+
+}
+}
